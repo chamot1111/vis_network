@@ -34,8 +34,7 @@ defmodule VisNetwork do
   @spec new(keyword()) :: t()
   def new(opts \\ []) do
     vn = %VisNetwork{}
-    vn_props = opts_to_vn_props(opts)
-    update_in(vn.spec, fn spec -> Map.merge(spec, vn_props) end)
+    options(vn, opts)
   end
 
   @compile {:no_warn_undefined, {Jason, :decode!, 1}}
