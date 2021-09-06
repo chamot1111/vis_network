@@ -124,7 +124,7 @@ defmodule VisNetwork do
   @spec options(t(), keyword()) :: t()
   def options(vn, opts) do
     vn_props = opts_to_vn_props(opts)
-    update_in(vn.spec, [Access.key(:spec), Access.key("options", %{})], &(Map.merge(&1, vn_props)))
+    update_in(vn, [Access.key(:spec), Access.key("options", %{})], &(Map.merge(&1, vn_props)))
   end
 
   @doc """
