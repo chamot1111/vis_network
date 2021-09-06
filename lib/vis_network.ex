@@ -97,7 +97,7 @@ defmodule VisNetwork do
   """
   @spec nodes(t(), list(map())) :: t()
   def nodes(vn, nodes_data) when is_list(nodes_data) do
-    put_in(vn, [:spec, Access.key("data", %{}), "nodes"], to_vn(nodes_data))
+    put_in(vn, [Access.key(:spec), Access.key("data", %{}), "nodes"], to_vn(nodes_data))
   end
 
   @doc """
@@ -110,7 +110,7 @@ defmodule VisNetwork do
   """
   @spec edges(t(), list(map())) :: t()
   def edges(vn, edges_data) when is_list(edges_data) do
-    put_in(vn, [:spec, Access.key("data", %{}), "edges"], to_vn(edges_data))
+    put_in(vn, [Access.key(:spec), Access.key("data", %{}), "edges"], to_vn(edges_data))
   end
 
   @doc """
@@ -124,7 +124,7 @@ defmodule VisNetwork do
   @spec options(t(), keyword()) :: t()
   def options(vn, opts) do
     vn_props = opts_to_vn_props(opts)
-    update_in(vn, [:spec, Access.key("options", %{})], &(Map.merge(&1, vn_props)))
+    update_in(vn.spec, [Access.key(:spec), Access.key("options", %{})], &(Map.merge(&1, vn_props)))
   end
 
   @doc """
