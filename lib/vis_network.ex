@@ -33,7 +33,7 @@ defmodule VisNetwork do
   """
   @spec new(keyword()) :: t()
   def new(opts \\ []) do
-    vn = %VisNetwork{}
+    vn = %VisNetwork{spec: %{"options" => %{"height" => "400px"}}}
     options(vn, opts)
   end
 
